@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="article"
+        type="com.mustafamelikaltug.newslice.model.Article" />
+
+    <variable
+        name="listener"
+        type="com.mustafamelikaltug.newslice.adapter.NewsClickListener" />
+
+</data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewArticle"
+        android:layout_width="match_parent"
+        android:layout_height="350sp"
+        android:backgroundTint="@color/backgroundPrimary"
+        android:layout_margin="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageViewCardBackgroundFrame"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/card_background_shape_frame"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewCardBackground"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="40dp"
+                android:padding="3dp"
+                android:src="@drawable/card_background_shape"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textViewArticleSourceNameExp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/source"
+                android:fontFamily="@font/lowball_neue_regular"
+                android:textColor="@color/textColor"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"
+                android:textAlignment="center"
+                app:layout_constraintTop_toTopOf="@+id/imageViewCardBackgroundFrame"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+
+            <TextView
+                android:id="@+id/textViewArticlePublishedTimeExp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:maxLength="10"
+                android:text="@string/date"
+                android:fontFamily="@font/lowball_neue_regular"
+                android:textColor="@color/textColor"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="25dp"
+                app:layout_constraintTop_toTopOf="@+id/imageViewCardBackgroundFrame"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/textViewArticleSourceName"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@{article.articleSource.name}"
+                android:fontFamily="@font/lowball_neue_regular"
+                android:textColor="@color/textColor"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_marginTop="45dp"
+                android:textAlignment="center"
+                app:layout_constraintTop_toTopOf="@+id/imageViewCardBackgroundFrame"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+
+            <TextView
+                android:id="@+id/textViewArticlePublishedTime"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:maxLength="10"
+                android:text="@{article.articlePublishedTime}"
+                android:fontFamily="@font/lowball_neue_regular"
+                android:textColor="@color/textColor"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="45dp"
+                app:layout_constraintTop_toTopOf="@+id/imageViewCardBackgroundFrame"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/constraintLayoutCard"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:onClick="@{()->listener.onArticleClicked(constraintLayoutCard,article.uuid)}"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginEnd="100dp"
+                    android:layout_weight="0.4"
+                    android:elevation="25dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageViewFrame"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@color/snowCat"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageViewArticleImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="3dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="3dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="0.6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewArticleTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/lowball_neue_regular"
+                        android:maxLines="3"
+                        android:text="@{article.articleTitle}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/textColor"
+                        android:textAlignment="center"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/textViewArticleDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/lowball_neue_regular"
+                        android:gravity="center_horizontal"
+                        android:maxLines="3"
+                        android:text="@{article.articleDescripton}"
+                        android:textAlignment="center"
+                        android:textColor="@color/textColor"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

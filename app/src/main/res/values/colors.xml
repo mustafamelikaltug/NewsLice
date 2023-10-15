@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="textColor">#FF000000</color>
+    <color name="backgroundPrimary">#F8F6EE</color>
+    <color name="backgroundSecondary">#FFF9C4</color>
+    <color name="darkBackgroundSecondaryVariant">#F4511E</color>
+    <color name="accentColor">#00C853</color>
+    <color name="belladonaMedium">#7a6670</color>
+    <color name="snowCat">#FF000000</color>
+
+</resources>
